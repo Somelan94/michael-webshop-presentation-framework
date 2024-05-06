@@ -2,6 +2,7 @@ package eu.michaelclement;
 
 import eu.michaelclement.page.LoginPageController;
 import eu.michaelclement.page.ProductsPageController;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -22,6 +23,8 @@ public class ProductCardTest {
         loginPageController.fillPasswordField("practicePass");
         loginPageController.clickLoginButton();
         productsPageController.fillSearch("Mug");
+        Assertions.assertEquals(1, productsPageController.getProductCount());
+        Assertions.assertEquals("Michael's Mug", productsPageController.getProductTitleText().get(0));
     }
 
 //    @AfterEach

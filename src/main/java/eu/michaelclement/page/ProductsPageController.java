@@ -1,6 +1,10 @@
 package eu.michaelclement.page;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProductsPageController extends ProductsPageElements {
 
@@ -25,6 +29,20 @@ public class ProductsPageController extends ProductsPageElements {
         switch (option) {
             case NAME -> sortDropdownOptionName.click();
             case PRICE -> sortDropdownOptionPrice.click();
+            default -> throw new RuntimeException("Nincs ilyen elem");
         }
     }
+
+    public int getProductCount() {
+        return productCards.size();
+    }
+
+    public List<String> getProductTitleText() {
+        List<String> titleList = new ArrayList<>();
+        for (WebElement title:productTitleText) {
+            titleList.add(title.getText());
+        }
+        return titleList;
+    }
 }
+

@@ -23,6 +23,9 @@ public abstract class ProductsPageElements {
     @FindBy(xpath = "//option[@value='price']")
     protected WebElement sortDropdownOptionPrice;
 
+    @FindBy(xpath = "//div[@class='product-card']")
+    protected List<WebElement> productCards;
+
     @FindBy(xpath = "//div[@class='product-card']/h3")
     protected List<WebElement> productTitleText;
     @FindBy(xpath = "//div[@class='product-card']/p[1]")
