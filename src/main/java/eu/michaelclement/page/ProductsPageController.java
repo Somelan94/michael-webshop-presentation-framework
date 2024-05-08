@@ -1,5 +1,6 @@
 package eu.michaelclement.page;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -17,11 +18,11 @@ public class ProductsPageController extends ProductsPageElements {
     }
 
     public void fillMinimumPriceFilterField(int price) {
-        minimumPriceFilterField.sendKeys(String.valueOf(price));
+        minimumPriceFilterField.sendKeys(String.valueOf(price) + Keys.ENTER);
     }
 
     public void fillMaximumPriceFilterField(int price) {
-        maximumPriceFilterField.sendKeys(String.valueOf(price));
+        maximumPriceFilterField.sendKeys(String.valueOf(price) + Keys.ENTER);
     }
 
     public void selectSortDropdownOption(SortOption option) {
@@ -39,7 +40,7 @@ public class ProductsPageController extends ProductsPageElements {
 
     public List<String> getProductTitleText() {
         List<String> titleList = new ArrayList<>();
-        for (WebElement title:productTitleText) {
+        for (WebElement title : productTitleText) {
             titleList.add(title.getText());
         }
         return titleList;
